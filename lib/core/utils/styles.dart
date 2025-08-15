@@ -1,7 +1,5 @@
-
-import 'package:bokly_app/const.dart';
+import 'package:bokly_app/constants.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/services.dart';
 
 abstract class Styles {
   static const textStyle18 = TextStyle(
@@ -15,7 +13,7 @@ abstract class Styles {
   static const textStyle30 = TextStyle(
     fontSize: 30,
     fontWeight: FontWeight.w900,
-    fontFamily:kGtSectraFine,
+    fontFamily: kGtSectraFine,
     letterSpacing: 1.2,
   );
   static const textStyle14 = TextStyle(
