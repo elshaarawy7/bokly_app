@@ -2,7 +2,7 @@ import 'package:bokly_app/Features/home/presentation/views/domin/entittes/book_e
 import 'package:bokly_app/core/errors/filer.dart';
 import 'package:dartz/dartz.dart';
 
-abstract class HomeRepo { 
+abstract class HomeRepo {
   Future<Either<Failure, List<BookEntity>>> fetchFutcherBooks();
-  Future<Either<Failure , List<BookEntity>>> fetchNewsBooks();
+  Future<Either<Failure, List<BookEntity>>> fetchNewsBooks();
 }

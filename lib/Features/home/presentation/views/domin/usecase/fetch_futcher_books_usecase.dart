@@ -20,5 +20,3 @@ class FetchFutcherBooksUsecase extends UseCase<BookEntity, NoPramter> {
     return await homeRepo.fetchFutcherBooks();
   }
 }
-
-

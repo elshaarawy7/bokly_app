@@ -1,6 +1,3 @@
-
-
-
 import 'package:bokly_app/constants.dart';
 import 'package:bokly_app/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
@@ -19,9 +16,7 @@ class Bookly extends StatelessWidget {
     return MaterialApp.router(
       routerConfig: AppRouter.router,
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: kPrimaryColor,
-      ),
+      theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: kPrimaryColor),
     );
   }
 }

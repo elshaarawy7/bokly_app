@@ -1,4 +1,3 @@
-
 import 'package:bokly_app/Features/home/presentation/views/widgets/similar_books_section.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -25,15 +24,9 @@ class BookDetailsViewBody extends StatelessWidget {
               children: const [
                 CustomBookDetailsAppBar(),
                 BookDetailsSection(),
-                Expanded(
-                  child: SizedBox(
-                    height: 50,
-                  ),
-                ),
+                Expanded(child: SizedBox(height: 50)),
                 SimilarBooksSection(),
-                SizedBox(
-                  height: 40,
-                ),
+                SizedBox(height: 40),
               ],
             ),
           ),
