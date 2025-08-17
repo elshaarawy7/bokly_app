@@ -3,7 +3,7 @@ import 'package:bokly_app/Features/home/presentation/views/domin/entittes/book_e
 import 'package:bokly_app/core/utils/api_serves.dart';
 
 abstract class HomeRemoteDataSouorce {
-   Future<List<BookEntity>> etchFutcherBooks(); 
+   Future<List<BookEntity>> fetchFutcherBooks(); 
    Future<List<BookEntity>> fetchNewsBooks(); 
 } 
 
@@ -11,7 +11,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSouorce{
    final ApiServes apiServes ;
 
   HomeRemoteDataSourceImpl( this.apiServes);
-  Future<List<BookEntity>> etchFutcherBooks() async {
+  Future<List<BookEntity>> fetchFutcherBooks() async {
     var data = await apiServes.get(endBiond: 'volumes?filtering=free-ebooks&q=programming') ;
 
     List<BookEntity> books = getBooksList(data); 
