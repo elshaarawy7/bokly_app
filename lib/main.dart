@@ -1,10 +1,14 @@
+import 'package:bokly_app/Features/home/presentation/views/domin/entittes/book_entity.dart';
 import 'package:bokly_app/constants.dart';
 import 'package:bokly_app/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/adapters.dart';
 
 import 'Features/Splash/presentation/views/splash_view.dart';
 
-void main() {
+void main() async {
+  Hive.registerAdapter(BookEntityAdapter()) ;
+  await  Hive.openBox(KFutcherdBox);
   runApp(const Bookly());
 }
 
