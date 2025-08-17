@@ -1,6 +1,9 @@
 import 'package:bokly_app/Features/home/data/model/book_model/book_model.dart';
 import 'package:bokly_app/Features/home/presentation/views/domin/entittes/book_entity.dart';
+import 'package:bokly_app/constants.dart';
 import 'package:bokly_app/core/utils/api_serves.dart';
+import 'package:bokly_app/core/utils/function/save_box.dart';
+import 'package:hive/hive.dart';
 
 abstract class HomeRemoteDataSouorce {
    Future<List<BookEntity>> fetchFutcherBooks(); 
@@ -14,9 +17,12 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSouorce{
   Future<List<BookEntity>> fetchFutcherBooks() async {
     var data = await apiServes.get(endBiond: 'volumes?filtering=free-ebooks&q=programming') ;
 
-    List<BookEntity> books = getBooksList(data); 
+    List<BookEntity> books = getBooksList(data ,); 
+    saveData(books , KFutcherdBox);
     return books ;
   }
+
+ 
 
   
 
@@ -24,7 +30,8 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSouorce{
   Future<List<BookEntity>> fetchNewsBooks() async {
       var data = await apiServes.get(endBiond: 'volumes?filtering=free-ebooks&sorting=newest&q=programming') ;
 
-    List<BookEntity> books = getBooksList(data); 
+    List<BookEntity> books = getBooksList(data);  
+    saveData(books, KnewsBox) ;
     return books ;
   } 
 

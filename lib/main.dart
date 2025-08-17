@@ -7,8 +7,10 @@ import 'package:hive_flutter/adapters.dart';
 import 'Features/Splash/presentation/views/splash_view.dart';
 
 void main() async {
+  await Hive.initFlutter() ;
   Hive.registerAdapter(BookEntityAdapter()) ;
-  await  Hive.openBox(KFutcherdBox);
+  await  Hive.openBox<BookEntity>(KFutcherdBox);
+  await Hive.openBox<BookEntity>(KnewsBox) ;
   runApp(const Bookly());
 }
 
