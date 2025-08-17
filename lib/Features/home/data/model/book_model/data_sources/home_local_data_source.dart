@@ -6,5 +6,16 @@ abstract class HomeLocalDataSource {
 } 
 
 class HomeDataSourceImpl extends HomeLocalDataSource{
-  
+  @override
+  List<BookEntity> etchFutcherBooks() {
+    // TODO: implement etchFutcherBooks
+    throw UnimplementedError();
+  }
+
+  @override
+  List<BookEntity> fetchNewsBooks() {
+    // TODO: implement fetchNewsBooks
+    throw UnimplementedError();
+  }
+
 }
