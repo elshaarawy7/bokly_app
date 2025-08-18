@@ -7,49 +7,49 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
 class HomeRepoImpl extends HomeRepo {
-  final HomeRemoteDataSouorce homeremoteDataSouorce;
-  final HomeLocalDataSource homelocalDataSource;
+  final HomeRemoteDataSouorce homeRemoteDataSource;
+  final HomeLocalDataSource homeLocalDataSource;
+
   HomeRepoImpl({
-    required this.homeremoteDataSouorce,
-    required this.homelocalDataSource,
+    required this.homeRemoteDataSource,
+    required this.homeLocalDataSource,
   });
+
+  @override
   Future<Either<Failure, List<BookEntity>>> fetchFutcherBooks() async {
     try {
-      final bookList = await homelocalDataSource.fetchFutcherBooks();
+      final bookList = await homeLocalDataSource.fetchFutcherBooks();
       if (bookList.isNotEmpty) {
         return right(bookList);
       }
 
-      var books = await homeremoteDataSouorce.fetchFutcherBooks();
+      var books = await homeRemoteDataSource.fetchFutcherBooks();
       return right(books);
-    }   catch ( e) {
-       if(e is DioException){
+    } catch (e) {
+      if (e is DioException) {
         return left(ServerFailure.fromDioException(e));
-       } else{
-        return left(ServerFailure(message: '$e'))  ;
-       }
+      } else {
+        return left(ServerFailure(message: '$e'));
+      }
     }
   }
-
-
-
 
   @override
   Future<Either<Failure, List<BookEntity>>> fetchNewsBooks() async {
     try {
-      List<BookEntity> books;
-      books = homelocalDataSource.fetchNewsBooks();
-      if (books.isEmpty) {
+      var books = await homeLocalDataSource.fetchNewsBooks();
+      if (books.isNotEmpty) {
         return right(books);
       }
-      books = await homelocalDataSource.fetchNewsBooks();
+      books = await homeRemoteDataSource.fetchNewsBooks();
       return right(books);
-    } catch  (e) {
-         if(e is DioException){
+    } catch (e) {
+      if (e is DioException) {
         return left(ServerFailure.fromDioException(e));
-       } else{
-        return left(ServerFailure(message: '$e'))  ;
-       }
+      } else {
+        return left(ServerFailure(message: '$e'));
+      }
     }
   }
 }
+

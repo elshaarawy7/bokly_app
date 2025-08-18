@@ -4,12 +4,10 @@ import 'package:bokly_app/core/errors/filer.dart';
 import 'package:bokly_app/core/usecase/usecase.dart';
 import 'package:dartz/dartz.dart';
 
-// ===== UseCase Base Class =====
 
-// ===== No Parameter Class =====
 class NoPramter {}
 
-// ===== Fetch Future Books Use Case =====
+
 class FetchFutcherBooksUsecase extends UseCase<BookEntity, NoPramter> {
   final HomeRepo homeRepo;
 
